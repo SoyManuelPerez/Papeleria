@@ -38,44 +38,23 @@
             <section class="text-center container banner">
               <div class="row pt-lg-5" >
                 <div class="col-lg-6 col-md-8 mx-auto fondo">
-                    <table id="example" class="display table" style="width: 100%;">
-                        <thead class="table-dark">
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">PRODUCTO</th>
-                            <th scope="col">CANTIDAD</th>
-                            <th scope="col">RESPONSABLE</th>
-                            <th scope="col">PRECIO</th>
-                            <th scope="col">FECHA</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Cuaderno</td>
-                            <td>3</td>
-                            <td>Manuel Perez</td>
-                            <td>$3000</td>
-                            <td>01/12/22</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Cuaderno</td>
-                            <td>5</td>
-                            <td>Manuel Perez</td>
-                            <td>$3000</td>
-                            <td>01/12/22</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>libreta</td>
-                            <td>2</td>
-                            <td>Manuel Perez</td>
-                            <td>$6000</td>
-                            <td>01/12/22</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <form action="">
+                    <h2>Registro de inventario</h2>
+                    <div class="container">
+                      <h3>Producto</h3>
+                      <input type="text" name="producto" id="producto">
+                    </div>
+                    <div class="container">
+                      <h3>Cantidad</h3>
+                      <input type="number" name="cantidad" id="cantidad">
+                    </div>
+                    <h3>Precio</h3>
+                    <div class="container">
+                      <input type="text" name="precio" id="precio">
+                    </div>
+                    <br>
+                    <input type="button" value="Guardar" >
+                  </form>
                 </div>
                 </div>
               </div>

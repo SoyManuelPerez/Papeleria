@@ -1,22 +1,42 @@
-//importando clase express
-const express = require('express');
-const Inv = require('./controller/Inventario')
-const app = express()// aplicadon la clase express a un objeto
-const port = 3000 // creacipn de in puerto para verificar que funciones
-
-//get para obtenr informacion
-app.get('/',Inv.list )
-// post es para la creacion
-app.post('/',Inv.create)
-//Para busacr solo a uno
-app.get('/:id',Inv.get )
-//put es para ingresar
-app.put('/:id',Inv.update)
-//patch es para modificar
-app.patch('/:id',Inv.update)
-//delete es para eliminar
-app.delete('/:id',Inv.destroy)
-//Para verificar que este funcionando en el puerto
-app.listen(port,()=>{
-    console.log('inicio la apliacion')
+const mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://ManuelP:Mp27238181@mundoliterario.wuml8kn.mongodb.net/Usuarios?retryWrites=true&w=majority')
+// Creacion de Usuario
+const User = mongoose.model('Usuario',{
+    Nombre:String,
+    Contraseña: Number
 })
+//Metodo para crear un usuario
+const crear = async()=>{
+    const usuario = new User({Nombre:'Satiago',Contraseña:32123})
+    usuario.save()
+
+}
+//crear()
+// metodo para buscar toda la lista
+const buscartodo = async()=>{
+    const Usuarios = await User.find()
+    console.log(Usuarios)
+}
+//buscartodo()
+//Metodo para buscar un usuario especifico
+ const Buscar = async()=>{
+    const usuario = await User.findOne({Nombre:'Manuel Perez'})
+    console.log(usuario)
+ }
+ //Buscar()
+//Metodo para actualizar DB
+const actualizar = async()=>{
+    const usuario = await User.findOne({Nombre:'Manuel Perez'})
+    console.log(usuario)
+    usuario.Nombre = 'Manuel'
+    await usuario.save()
+}
+//actualizar()
+//Metodo para eliminar
+const eliminar = async()=>{
+    const usuario = await User.findOne({Nombre:'Santiago'})
+    if(usuario){
+    await usuario.remove()
+    }
+}
+eliminar()

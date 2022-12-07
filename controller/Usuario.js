@@ -1,17 +1,20 @@
+const usuario = require('../routes/usuario')
 const Usu ={
-    get:(req,res)=>{
+    get:async(req,res)=>{
         res.status(200).send('Un solo usuario')
     }, 
-    list:(req,res)=>{
-        res.status(200).send('Listado de usuarios')
+    list: async (req,res)=>{
+        const listado = await usuario.find()
+        res.status(200).send(listado)
     },
-    create:(req, res)=>{
+    create:async(req, res)=>{
+        console.log(req.body)
         res.sendStatus(201).send('Creando Usuario')
     },
-    update:(req,res)=>{
+    update:async(req,res)=>{
         res.sendStatus(204).sed('Actualizando Usuario')
     },
-    destroy:(req,res)=>{
+    destroy:async(req,res)=>{
         res.sendStatus(204).sed('Eliminado Usuario')
     }
 }
